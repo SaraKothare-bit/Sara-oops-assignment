@@ -1,0 +1,240 @@
+
+1. UsernameValidator
+Java
+import java.util.Scanner;
+
+class UsernameValidator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter username: ");
+        String username = sc.nextLine();
+
+        // Remove spaces
+        username = username.trim();
+
+        // Convert to lowercase
+        username = username.toLowerCase();
+
+        System.out.println("Cleaned Username: " + username);
+    }
+}
+✅ 2. EmailChecker
+Java
+import java.util.Scanner;
+
+class EmailChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter email: ");
+        String email = sc.nextLine();
+
+        if (email.contains("@gmail.com")) {
+            System.out.println("Valid Gmail Address");
+        } else {
+            System.out.println("Invalid Email");
+        }
+    }
+}
+✅ 3. StudentNameComparison
+Java
+import java.util.Scanner;
+
+class StudentNameComparison {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first name: ");
+        String name1 = sc.nextLine();
+
+        System.out.print("Enter second name: ");
+        String name2 = sc.nextLine();
+
+        // Case-sensitive comparison
+        if (name1.equals(name2)) {
+            System.out.println("Case-Sensitive: Names are equal");
+        } else {
+            System.out.println("Case-Sensitive: Names are NOT equal");
+        }
+
+        // Case-insensitive comparison
+        if (name1.equalsIgnoreCase(name2)) {
+            System.out.println("Case-Insensitive: Names are equal");
+        } else {
+            System.out.println("Case-Insensitive: Names are NOT equal");
+        }
+    }
+}
+✅ 4. MessageFormatter
+Java
+import java.util.Scanner;
+
+class MessageFormatter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first name: ");
+        String firstName = sc.nextLine();
+
+        System.out.print("Enter last name: ");
+        String lastName = sc.nextLine();
+
+        // Concatenate names
+        String fullName = firstName + " " + lastName;
+
+        // Proper format (capitalize first letters)
+        fullName = fullName.substring(0,1).toUpperCase() + fullName.substring(1).toLowerCase();
+
+        System.out.println("Formatted Name: " + fullName);
+    }
+}
+✅ 5. FileExtensionExtractor
+Java
+import java.util.Scanner;
+
+class FileExtensionExtractor {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter file name: ");
+        String fileName = sc.nextLine();
+
+        int index = fileName.lastIndexOf('.');
+
+        if (index != -1) {
+            String extension = fileName.substring(index + 1);
+            System.out.println("File Extension: " + extension);
+        } else {
+            System.out.println("No extension found");
+        }
+    }
+}
+✅ 6. WordCounter (Using StringTokenizer)
+Java
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+class WordCounter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine();
+
+        StringTokenizer st = new StringTokenizer(sentence);
+
+        int count = st.countTokens();
+
+        System.out.println("Number of words: " + count);
+    }
+}
+7. TextEditorBuffer (Using StringBuffer)
+Java
+import java.util.Scanner;
+
+class TextEditorBuffer {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Create StringBuffer
+        StringBuffer sb = new StringBuffer();
+
+        System.out.print("Enter initial text: ");
+        String text = sc.nextLine();
+        sb.append(text);
+
+        // Append text
+        System.out.print("Enter text to append: ");
+        String appendText = sc.nextLine();
+        sb.append(appendText);
+
+        // Insert text
+        System.out.print("Enter position to insert: ");
+        int pos = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        System.out.print("Enter text to insert: ");
+        String insertText = sc.nextLine();
+        sb.insert(pos, insertText);
+
+        // Reverse string
+        sb.reverse();
+
+        System.out.println("Final Output: " + sb);
+    }
+}
+✅ 8. TextProcessingBuilder (Using StringBuilder)
+Java
+class TextProcessingBuilder {
+    public static void main(String[] args) {
+
+        // Create StringBuilder
+        StringBuilder sb = new StringBuilder("Hello");
+
+        // Append text
+        sb.append(" World!");
+        sb.append(" Welcome to Java.");
+
+        // Display modified string
+        System.out.println("Modified String: " + sb);
+
+        /*
+         Difference:
+         StringBuffer:
+         - Thread-safe (synchronized)
+         - Slower
+
+         StringBuilder:
+         - Not thread-safe
+         - Faster
+        */
+    }
+}
+✅ 9. Student Class with toString()
+Java
+class Student {
+    int id;
+    String name;
+
+    // Constructor
+    Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    // Override toString()
+    public String toString() {
+        return "Student ID: " + id + ", Name: " + name;
+    }
+
+    public static void main(String[] args) {
+        // Create object
+        Student s1 = new Student(101, "Palak");
+
+        // Display details
+        System.out.println(s1);
+    }
+}
+✅ 10. PasswordMaskingSystem
+Java
+import java.util.Scanner;
+
+class PasswordMaskingSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter password: ");
+        String password = sc.nextLine();
+
+        if (password.length() <= 2) {
+            System.out.println("Masked Password: " + password);
+        } else {
+            String masked = password.substring(0, password.length() - 2)
+                             .replaceAll(".", "*")
+                             + password.substring(password.length() - 2);
+
+            System.out.println("Masked Password: " + masked);
+        }
+    }
+}
